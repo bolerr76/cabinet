@@ -10,12 +10,11 @@ class DocsController < ApplicationController
     end
     
     def new
-        @doc = Doc.new
+        @doc = current_user.docs.build        # @doc = Doc.new -ovo smo promjenili kada smo dodali User model!
     end
     
     def create
-        @doc = Doc.new(doc_params)
-        
+        @doc = current_user.docs.build(doc_params)   #@doc = Doc.new(doc_params) isto tako i ovde smo promjenili
         if @doc.save
             redirect_to @doc
         else
