@@ -3,7 +3,7 @@ class DocsController < ApplicationController
 
 
     def index
-        @docs = Doc.all.order("created_at DESC") 
+        @docs = Doc.where(user_id: current_user)     #Doc.all.order("created_at DESC") izbrisano nakon User modula. Svaki User moze vidjeti samo svoje docs.
     end
   
     def show
