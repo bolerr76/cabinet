@@ -25,7 +25,7 @@ class DocsController < ApplicationController
     def edit
     end
     
-    def updated
+    def update
         if @doc.update(doc_params)
             redirect_to @doc
         else
